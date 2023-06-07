@@ -96,25 +96,23 @@ function sumMix(x) {
 // Note: if there is nothing to sum, the sum is default to 0.
 
 function positiveSum(arr) {
-    let tr= arr.filter(el=>el>0)
-    if (tr.length!==0){
-        return tr.reduce((a,b)=>a+b)
+    let tr = arr.filter(el => el > 0)
+    if (tr.length !== 0) {
+        return tr.reduce((a, b) => a + b)
     }
     return 0
 
 }
 
-console.log(positiveSum([-1, 2, -3,1,6]))
-
+console.log(positiveSum([-1, 2, -3, 1, 6]))
 
 
 //6.
 //It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string.
 // You're given one parameter, the original string. You don't have to worry with strings with less than two characters.
-const removeChar=(str)=>str.slice(1,-1)
+const removeChar = (str) => str.slice(1, -1)
 
 console.log(removeChar('kol'))
-
 
 
 //7.
@@ -124,14 +122,29 @@ console.log(removeChar('kol'))
 //Примечание. Функция принимает целое число и возвращает целое число.
 //Удачного кодирования!
 
-function squareDigits(num){
-    const re=String(num).split('')
-    const ki=re.map(el=>+(el**2))
-    return  Number(ki.map(el=>el.toString()).reduce((acc,b)=>acc+ b))
+function squareDigits(num) {
+    const re = String(num).split('')
+    const ki = re.map(el => +(el ** 2))
+    return Number(ki.map(el => el.toString()).reduce((acc, b) => acc + b))
 
 }
 
 console.log(squareDigits(222))
+
+
+//8.
+//Ваша задача состоит в том, чтобы создать функцию, которая может принимать
+// любое неотрицательное целое число в качестве аргумента и возвращать его с
+// цифрами в порядке убывания. По сути, переставьте цифры, чтобы получить максимально возможное число.
+// Примеры:
+// Вход: 42145 Выход:54421
+// Вход: 145263 Выход:654321
+// Вход: 123456789 Выход:987654321
+
+const descendingOrder=(n)=> Number(n.toString().split('').sort((a,b)=>b-a).join(''))
+
+
+console.log(descendingOrder(3502))
 
 
 
