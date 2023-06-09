@@ -141,10 +141,73 @@ console.log(squareDigits(222))
 // Вход: 145263 Выход:654321
 // Вход: 123456789 Выход:987654321
 
-const descendingOrder=(n)=> Number(n.toString().split('').sort((a,b)=>b-a).join(''))
+const descendingOrder = (n) => Number(n.toString().split('').sort((a, b) => b - a).join(''))
 
 
 console.log(descendingOrder(3502))
 
 
+//9.
+//In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+// Example
+// filter_list([1,2,'a','b']) == [1,2]
+// filter_list([1,'a','b',0,15]) == [1,0,15]
+// filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
 
+function filter_list(l) {
+    return l.filter((el) => typeof el !== "string")
+}
+
+console.log(filter_list([1, 'DA', 3, 4, 'ere']))
+
+
+//10.
+//Просто, учитывая строку слов, вернуть длину кратчайшего слова (слов).
+
+// Строка никогда не будет пустой, и вам не нужно учитывать разные типы данных.
+
+function findShort(str) {
+    const arrOfWords = str.split(' ');
+    const arrOfLengths = arrOfWords.map(item => item.length);
+    return Math.min(...arrOfLengths)
+}
+
+console.log(findShort("bitcoin take over the world maybe who knows perhaps"))
+
+
+//11.
+//Создайте функцию, которая возвращает сумму двух наименьших положительных чисел для заданного массива минимум из
+// 4 положительных целых чисел. Не будут переданы числа с плавающей запятой или неположительные целые числа.
+// Например, когда массив передается как [19, 5, 42, 2, 77], вывод должен быть 7.
+// [10, 343445353, 3453445, 3453545353453]должен вернуться 3453455.
+function sumTwoSmallestNumbers(numbers) {
+    return numbers.sort((a, b) => a - b).slice(0, 2).reduce((a, b) => a + b)
+}
+
+console.log(sumTwoSmallestNumbers([19, 5, 42, 2, 77]))
+
+//12.
+
+// Возьмите 2 строки s1и s2включите только буквы от aдо z. Возвращает новую отсортированную строку,
+// максимально длинную, содержащую различные буквы (каждая из которых взята только один раз) из s1 или s2.
+// Примеры:
+// a = "xyaabbbccccdefww"
+// b = "xxxxyyyyabklmopq"
+// longest(a, b) -> "abcdefklmopqwxy"
+// a = "abcdefghijklmnopqrstuvwxyz"
+// longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+
+
+
+function longest(s1, s2) {
+     let re = [...new Set(s1)]
+     let re2 = [...new Set(s2)]
+     let re3 = [...re, ...re2]
+     let re4 = re3.sort()
+     let re5 = [...new Set(re4)].join('')
+     return re5
+ }
+
+/*const longest=(s1, s2)=>[...new Set([...new Set(s1), ...new Set(s2)].sort())].join('')*/
+
+console.log(longest("xyaabbbccccdefww", "xxxxyyyyabklmopq"))
