@@ -198,16 +198,35 @@ console.log(sumTwoSmallestNumbers([19, 5, 42, 2, 77]))
 // longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
 
 
-
 function longest(s1, s2) {
-     let re = [...new Set(s1)]
-     let re2 = [...new Set(s2)]
-     let re3 = [...re, ...re2]
-     let re4 = re3.sort()
-     let re5 = [...new Set(re4)].join('')
-     return re5
- }
+    let re = [...new Set(s1)]
+    let re2 = [...new Set(s2)]
+    let re3 = [...re, ...re2]
+    let re4 = re3.sort()
+    let re5 = [...new Set(re4)].join('')
+    return re5
+}
 
 /*const longest=(s1, s2)=>[...new Set([...new Set(s1), ...new Set(s2)].sort())].join('')*/
 
 console.log(longest("xyaabbbccccdefww", "xxxxyyyyabklmopq"))
+
+
+//13.
+
+//Реализуйте функцию, которая складывает два числа и возвращает их сумму в двоичном виде. Преобразование может быть выполнено до или после добавления.
+// Возвращаемое двоичное число должно быть строкой.
+// Примеры:(Ввод1, Ввод2 --> Выход (пояснение)))
+// 1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
+// 5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)
+
+function addBinary(a, b) {
+    const sum = a + b
+    return parseInt(sum,10).toString(2)
+}
+
+
+console.log(addBinary(11, 11))
+
+
+//14.
