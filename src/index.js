@@ -222,7 +222,7 @@ console.log(longest("xyaabbbccccdefww", "xxxxyyyyabklmopq"))
 
 function addBinary(a, b) {
     const sum = a + b
-    return parseInt(sum,10).toString(2)
+    return parseInt(sum, 10).toString(2)
 }
 
 
@@ -244,10 +244,19 @@ console.log(addBinary(11, 11))
 // Testing: [1, 0, 1, 1] ==> 11
 // Однако массивы могут иметь разную длину, а не только 4.
 
-const binaryArrayToNumber = arr => parseInt(arr.join('') ,2)
+const binaryArrayToNumber = arr => parseInt(arr.join(''), 2)
 
-console.log(binaryArrayToNumber([0,1,1,0]))
-
+console.log(binaryArrayToNumber([0, 1, 1, 0]))
 
 
 //15.
+
+//Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+// Examples:
+// solution('abc', 'bc') // returns true
+// solution('abc', 'd') // returns false
+
+const solution=(str, ending) =>str.endsWith(ending)
+
+
+console.log(solution('abcde', 'abc'))
