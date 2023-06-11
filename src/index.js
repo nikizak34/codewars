@@ -256,7 +256,20 @@ console.log(binaryArrayToNumber([0, 1, 1, 0]))
 // solution('abc', 'bc') // returns true
 // solution('abc', 'd') // returns false
 
-const solution=(str, ending) =>str.endsWith(ending)
+const solution = (str, ending) => str.endsWith(ending)
 
 
 console.log(solution('abcde', 'abc'))
+
+
+//16.
+//Завершите функцию, которая принимает строковый параметр и переворачивает каждое слово в строке. Все пробелы в строке должны быть сохранены.
+// Примеры
+// "This is an example!" ==> "sihT si na !elpmaxe"
+// "double  spaces"      ==> "elbuod  secaps"
+
+function reverseWords(str) {
+    return str.split('').reverse().join( '').split(' ').reverse().join(' ')
+}
+
+console.log(reverseWords('double  spaced  words'))
