@@ -269,7 +269,7 @@ console.log(solution('abcde', 'abc'))
 // "double  spaces"      ==> "elbuod  secaps"
 
 function reverseWords(str) {
-    return str.split('').reverse().join( '').split(' ').reverse().join(' ')
+    return str.split('').reverse().join('').split(' ').reverse().join(' ')
 }
 
 console.log(reverseWords('double  spaced  words'))
@@ -280,10 +280,33 @@ console.log(reverseWords('double  spaced  words'))
 // elements with the same value, remove the one with a lower index. If you get an empty array/list, return an empty array/list.
 // Don't change the order of the elements that are left.
 function removeSmallest(numbers) {
-    const min= Math.min(...numbers)
-   const min2= numbers.indexOf(min)
-    const min3= numbers.filter((el,index)=>index!==min2)
-  return min3
+    const min = Math.min(...numbers)
+    const min2 = numbers.indexOf(min)
+    const min3 = numbers.filter((el, index) => index !== min2)
+    return min3
 }
 
-console.log(removeSmallest([2,2,1,2,1]))
+console.log(removeSmallest([2, 2, 1, 2, 1]))
+
+//18.
+//Задача
+// Напишите функцию, которая возвращает минимальное и максимальное количество заданного списка/массива.
+// Примеры (ввод --> вывод)
+// [1,2,3,4,5] --> [1,5]
+// [2334454,5] --> [5,2334454]
+// [1]         --> [1,1]
+// Примечания
+// Все массивы или списки всегда будут иметь хотя бы один элемент, поэтому вам не нужно проверять длину.
+// Кроме того, ваша функция всегда будет получать массив или список, вам не нужно проверять nullили undefinedчто-то подобное.
+function minMax(arr) {
+    const num = Math.min(...arr)
+    const num2=Math.max(...arr)
+    const arr2 = new Set([num, num2])
+    const arr3 = [...arr2]
+    if (arr.length===1){
+        return [...arr,...arr]
+    }
+    return arr3
+}
+
+console.log(minMax([5]))
