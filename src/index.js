@@ -300,13 +300,68 @@ console.log(removeSmallest([2, 2, 1, 2, 1]))
 // Кроме того, ваша функция всегда будет получать массив или список, вам не нужно проверять nullили undefinedчто-то подобное.
 function minMax(arr) {
     const num = Math.min(...arr)
-    const num2=Math.max(...arr)
+    const num2 = Math.max(...arr)
     const arr2 = new Set([num, num2])
     const arr3 = [...arr2]
-    if (arr.length===1){
-        return [...arr,...arr]
+    if (arr.length === 1) {
+        return [...arr, ...arr]
     }
     return arr3
 }
 
 console.log(minMax([5]))
+
+
+//19.
+//Напишите функцию, которая принимает строку из одного или нескольких слов и возвращает ту же строку, но с перевернутыми
+// всеми словами из пяти или более букв (точно так же, как имя этого Ката). Передаваемые строки будут состоять только из
+// букв и пробелов. Пробелы будут включены только в том случае, если присутствует более одного слова.
+// Примеры:
+// spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw"
+// spinWords( "This is a test") => returns "This is a test"
+// spinWords( "This is another test" )=> returns "This is rehtona test"
+
+function spinWords(string) {
+    return string
+        .split(' ')
+        .map(word => word.length >= 5 ? word.split('').reverse().join('') : word)
+        .join(' ');
+}
+
+
+console.log(spinWords('This is another test'))
+
+
+//20.
+//Реализуйте функцию, которая принимает массив, содержащий имена людей, которым понравился элемент.
+// Он должен возвращать отображаемый текст, как показано в примерах:
+// []                                -->  "no one likes this"
+// ["Peter"]                         -->  "Peter likes this"
+// ["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+// ["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+// ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+// Примечание. Для 4 и более имен число "and 2 others"просто увеличивается.
+
+function likes(names) {
+    if (!names.length) {
+        return "no one likes this"
+    }
+    if (names.length===1){
+        return `${names} likes this`
+    }
+    if (names.length===2){
+        return `${names[0]} and ${names[1]} like this`
+    }
+
+    if (names.length===3){
+        return `${names[0]}, ${names[1]} and ${names[2]} like this`
+    }
+
+    if (names.length>=4){
+        return `${names[0]}, ${names[1]} and ${names.length-2} others like this`
+    }
+
+}
+
+
+console.log(likes(["Alex", "Jacob", "Mark", "Max"]))
