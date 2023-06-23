@@ -346,22 +346,61 @@ function likes(names) {
     if (!names.length) {
         return "no one likes this"
     }
-    if (names.length===1){
+    if (names.length === 1) {
         return `${names} likes this`
     }
-    if (names.length===2){
+    if (names.length === 2) {
         return `${names[0]} and ${names[1]} like this`
     }
 
-    if (names.length===3){
+    if (names.length === 3) {
         return `${names[0]}, ${names[1]} and ${names[2]} like this`
     }
 
-    if (names.length>=4){
-        return `${names[0]}, ${names[1]} and ${names.length-2} others like this`
+    if (names.length >= 4) {
+        return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
     }
 
 }
 
 
 console.log(likes(["Alex", "Jacob", "Mark", "Max"]))
+
+
+//21.
+//Цифровой корень — это рекурсивная сумма всех цифр числа.
+// Учитывая n, возьмите сумму цифр n. Если это значение имеет более одной цифры, продолжайте уменьшать таким образом,
+// пока не будет получено однозначное число. Ввод будет неотрицательным целым числом.
+// Примеры
+//     16  -->  1 + 6 = 7
+//    942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
+// 132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
+// 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
+function digitalRoot(n) {
+
+    let sum = n.toString().split('').map(el => +el).reduce((a, b) => a + b).toString().split('')
+        .map(el => +el).reduce((a, b) => a + b)
+    if (sum.toString().split('').length > 1) {
+        return sum.toString().split('').map(el => +el).reduce((a, b) => a + b)
+    }
+    return sum
+}
+
+
+console.log(digitalRoot(493193))
+
+
+//22.
+//Ваша цель в этом ката — реализовать функцию разности, которая вычитает один список из другого и возвращает результат.
+// Он должен удалить из списка все значения a, которые присутствуют в списке, bсохраняя их порядок.
+// arrayDiff([1,2],[1]) == [2]
+// Если значение присутствует в b, все его вхождения должны быть удалены из другого:
+// arrayDiff([1,2,2,2,3],[2]) == [1,3]
+
+function arrayDiff(a, b) {
+
+    return a.filter(el => el !== b.find(kl => kl === el))
+
+}
+
+console.log(arrayDiff([1, 2, 2, 2, 3], [2]))
