@@ -404,3 +404,30 @@ function arrayDiff(a, b) {
 }
 
 console.log(arrayDiff([1, 2, 2, 2, 3], [2]))
+
+
+//23.
+//Напишите функцию, которая принимает массив из 10 целых чисел (от 0 до 9), которая возвращает строку этих чисел в виде номера телефона.
+// Пример
+// createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // => returns "(123) 456-7890"
+// Возвращаемый формат должен быть правильным, чтобы выполнить эту задачу.
+// Не забудьте пробел после закрывающей скобки!
+function createPhoneNumber(n) {
+    return `(${n[0]}${n[1]}${n[2]}) ${n[3]}${n[4]}${n[5]}-${n[6]}${n[7]}${n[8]}${n[9]}`
+}
+
+
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+
+
+//24.
+//Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary
+// representation of that number. You can guarantee that input is non-negative.
+// Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case
+const countBits = function (n) {
+
+    return n.toString(2).split('').map(el => +el).filter(el => el === 1).length
+
+};
+
+console.log(countBits(1234))
