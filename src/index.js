@@ -431,3 +431,80 @@ const countBits = function (n) {
 };
 
 console.log(countBits(1234))
+
+
+//25.
+//Напишите алгоритм, который берет массив и перемещает все нули в конец, сохраняя порядок остальных элементов.
+// moveZeros([false,1,0,1,2,0,1,3,"a"]) // returns[false,1,1,2,1,3,"a",0,0]
+function moveZeros(arr) {
+    let a = []
+    let b = arr.map(el => el === 0 ? a.push(el) : el)
+    let c = arr.filter(el => el !== 0)
+    return [...c, ...a]
+}
+
+
+console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]))
+
+
+//26
+//Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word
+// within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also
+// often referred to as Pascal case). The next words should be always capitalized.
+// Examples
+// "the-stealth-warrior" gets converted to "theStealthWarrior"
+// "The_Stealth_Warrior" gets converted to "TheStealthWarrior"
+// "The_Stealth-Warrior" gets converted to "TheStealthWarrior"
+
+
+function toCamelCase(str){
+    str = str.split('');
+    return str.map(function(el, i){
+        if(el == '-' || el == '_'){
+            el = str[i+1].toUpperCase();
+            str.splice(i+1, 1);
+        }
+        return el;
+    }).join('');
+}
+
+
+console.log(toCamelCase('the-stealth-warrior'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+function generateHashtag(string) {
+    if (string.trim() === '') return false;
+
+    const stringWithCamelCase = string
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join('');
+
+    const stringWithHashtag = `#${stringWithCamelCase.trim()}`;
+
+    return stringWithHashtag.length > 140 ? false : stringWithHashtag;
+}
+
+console.log(generateHashtag("    Hello     World   " ))*/
